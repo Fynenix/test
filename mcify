@@ -2,14 +2,19 @@ local basalt = require("basalt") --> Load the Basalt framework into the variable
 
 --> Now we want to create a base frame, we call the variable "main" - by default everything you create is visible. (you don't need to use :show())
 
+
 local main = basalt.createFrame()
+local playsongthread = main:addThread()
 local aDropdown = main:addDropdown()
+aDropdown:addItem("Item 1")
 aDropdown:addItem("Bundy")
-aDropdown:addItem("Item 2")
 aDropdown:addItem("Item 3")
 
 aDropdown:onChange(function(self, item)
-  music(item.text)
+  local song = aDropdown:getItemIndex()
+  if(song == 1)then
+    songname = "Bundy.wav"
+    playsongthread:start(playmusic(songname))
 end)
 
 
