@@ -1,12 +1,6 @@
 local basalt = require("basalt") --> Load the Basalt framework into the variable called "basalt"
 
 --> Now we want to create a base frame, we call the variable "main" - by default everything you create is visible. (you don't need to use :show())
-local main = basalt.createFrame()
-
-local button = main:addButton() --> Here we add our first button
-button:setPosition(4, 4) -- We want to change the default position of our button
-button:setSize(16, 3) -- And the default size.
-button:setText("Click me!") --> This method sets the text displayed on our button
 
 local main = basalt.createFrame()
 local aDropdown = main:addDropdown()
@@ -26,10 +20,13 @@ function playmusic(music)
   local speaker = peripheral.find("speaker")
 
   local decoder = dfpwm.make_decoder()
-  for chunk in io.lines(""music".wav", 16 * 1024) do
+  for chunk in io.lines("music.wav", 16 * 1024) do
       local buffer = decoder(chunk)
 
       while not speaker.playAudio(buffer) do
           os.pullEvent("speaker_audio_empty")
       end
   end
+end
+
+basalt.autoUpdate()
