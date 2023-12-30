@@ -41,10 +41,6 @@ while true do
 	if message == "chirp" then
 		s.playSound("minecraft:music_disc.chirp")
 	end
-	
-	if message == "far" then
-		s.playSound("minecraft:music_disc.far")
-	end
 
 	if message == "mall" then
 		s.playSound("minecraft:music_disc.mall")
@@ -66,9 +62,6 @@ while true do
 		s.playSound("minecraft:music_disc.ward")
 	end
 	
-	if message == "wait" then
-		s.playSound("minecraft:music_disc.wait")
-	end
 	
 	if message == "pigstep" then
 		s.playSound("minecraft:music_disc.pigstep")
