@@ -1,0 +1,55 @@
+print("Speaker active...")
+rednet.open("left")
+
+while true do
+	local s = peripheral.find("speaker")
+	local sender, message, protocol = rednet.receive()
+
+	if message == "cat" then
+		s.playSound("minecraft:music_disc.cat")
+	end
+
+ 	if message == "bundy" then
+		s.playSound("bundy.wav")
+	end
+	
+	if message == "blocks" then
+		s.playSound("minecraft:music_disc.blocks")
+	end
+	
+	if message == "chirp" then
+		s.playSound("minecraft:music_disc.chirp")
+	end
+	
+	if message == "far" then
+		s.playSound("minecraft:music_disc.far")
+	end
+
+	if message == "mall" then
+		s.playSound("minecraft:music_disc.mall")
+	end
+	
+	if message == "mellohi" then
+		s.playSound("minecraft:music_disc.mellohi")
+	end
+	
+	if message == "stal" then
+		s.playSound("minecraft:music_disc.stal")
+	end
+	
+	if message == "strad" then
+		s.playSound("minecraft:music_disc.strad")
+	end
+	
+	if message == "ward" then
+		s.playSound("minecraft:music_disc.ward")
+	end
+	
+	if message == "wait" then
+		s.playSound("minecraft:music_disc.wait")
+	end
+	
+	if message == "pigstep" then
+		s.playSound("minecraft:music_disc.pigstep")
+	end
+end	
