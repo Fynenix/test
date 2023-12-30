@@ -58,11 +58,6 @@ while true do
 		s.playSound("minecraft:music_disc.strad")
 	end
 	
-	if message == "ward" then
-		s.playSound("minecraft:music_disc.ward")
-	end
-	
-	
 	if message == "pigstep" then
 		s.playSound("minecraft:music_disc.pigstep")
 	end
