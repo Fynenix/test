@@ -14,7 +14,7 @@ while true do
 	end
 
  	if message == "stop" then
-		s.stop
+		s.stop()
 	end
 	
 	if message == "blocks" then
