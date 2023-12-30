@@ -1,4 +1,4 @@
-vvprint("Speaker active...")
+print("Speaker active...")
 rednet.open("left")
 
 while true do
@@ -27,7 +27,6 @@ while true do
 				end
    			 end
 		end
-		handle.close()
 	end
 
  	if message == "stop" then
