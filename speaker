@@ -12,6 +12,10 @@ while true do
  	if message == "bundy" then
 		s.playSound("bundy.wav")
 	end
+
+ 	if message == "stop" then
+		s.stop
+	end
 	
 	if message == "blocks" then
 		s.playSound("minecraft:music_disc.blocks")
