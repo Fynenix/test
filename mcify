@@ -15,6 +15,7 @@ aDropdown:onChange(function(self, item)
   if(song == 1)then
     songname = "Bundy.wav"
     playsongthread:start(playmusic(songname))
+  end
 end)
 
 
