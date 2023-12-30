@@ -14,19 +14,38 @@ aDropdown:onChange(function(self, item)
   local song = aDropdown:getItemIndex()
   if(song == 1)then
     songname = "Bundy.wav"
-    playsongthread:start(playmusic(songname))
   end
 end)
 
+local sub = main:addFrame() -- the frame we want to resize
+    :setPosition(3,3)
+    :setSize(25,8)
+    :setBorder(colors.black)
 
-basalt.autoUpdate() -- As soon as we call basalt.autoUpdate, the event and draw handlers will listen to any incoming events (and draw if necessary)
+sub:addButton()
+    :setPosition(1, 1)
+    :setText("Play")
+    :setSize(1,1)
+    :onClick(
+      function()
+          playsongthread:start(playmusic)
+      end)
+
+sub:addButton()
+    :setPosition(1, 10)
+    :setText("Stop")
+    :setSize(1,1)
+    :onClick(
+      function()
+          playsongthread:stop(playmusic)
+      end)
 
 function playmusic(music)
   local dfpwm = require("cc.audio.dfpwm")
   local speaker = peripheral.find("speaker")
 
   local decoder = dfpwm.make_decoder()
-  for chunk in io.lines("music.wav", 16 * 1024) do
+  for chunk in io.lines("songname", 16 * 1024) do
       local buffer = decoder(chunk)
 
       while not speaker.playAudio(buffer) do
