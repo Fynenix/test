@@ -4,13 +4,23 @@ rednet.open("left")
 while true do
 	local s = peripheral.find("speaker")
 	local sender, message, protocol = rednet.receive()
+	
 
 	if message == "cat" then
 		s.playSound("minecraft:music_disc.cat")
 	end
 
  	if message == "bundy" then
-		s.playSound("bundy.wav")
+		local dfpwm = require("cc.audio.dfpwm")
+		local speaker = peripheral.find("speaker")
+		local decoder = dfpwm.make_decoder()
+		for chunk in io.lines(bundy.wav", 16 * 1024 do
+    			local buffer = decoder(chunk)
+    			while not speaker.playAudio(buffer) do
+        			os.pullEvent("speaker_audio_empty")
+   			 end
+		end
+		handle.close()
 	end
 
  	if message == "stop" then
