@@ -1,4 +1,4 @@
-print("Speaker active...")
+vvprint("Speaker active...")
 rednet.open("left")
 
 while true do
