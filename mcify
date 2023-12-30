@@ -17,12 +17,17 @@ aDropdown:onChange(function(self, item)
   end
 end)
 
-local sub = main:addFrame() -- the frame we want to resize
+local play = main:addFrame() -- the frame we want to resize
     :setPosition(3,3)
-    :setSize(25,8)
+    :setSize(8,8)
     :setBorder(colors.black)
 
-sub:addButton()
+local stop = main:addFrame() -- the frame we want to resize
+    :setPosition(3,20)
+    :setSize(8,8)
+    :setBorder(colors.black)
+
+play:addButton()
     :setPosition(1, 1)
     :setText("Play")
     :setSize(1,1)
@@ -31,7 +36,7 @@ sub:addButton()
           playsongthread:start(playmusic)
       end)
 
-sub:addButton()
+stop:addButton()
     :setPosition(1, 10)
     :setText("Stop")
     :setSize(1,1)
@@ -45,7 +50,7 @@ function playmusic(music)
   local speaker = peripheral.find("speaker")
 
   local decoder = dfpwm.make_decoder()
-  for chunk in io.lines("songname", 16 * 1024) do
+  for chunk in io.lines(songname, 16 * 1024) do
       local buffer = decoder(chunk)
 
       while not speaker.playAudio(buffer) do
